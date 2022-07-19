@@ -32,6 +32,20 @@ module App
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
+    config.time_zone = 'Asia/Tokyo'
+    config.i18n.default_locale = :ja
+    config.active_record.default_timezone = :utc
+    config.add_autoload_paths_to_load_path = false
     config.generators.system_tests = nil
+    config.generators.template_engine = :slim
+    config.i18n.load_path += Dir[Rails.root.join('config/locales/**/*.{rb,yml}').to_s]
+    config.generators do |g|
+      g.test_framework :rspec,
+                       view_specs: false,
+                       helper_specs: false,
+                       models_specs: false,
+                       routing_specs: false
+    end
+  end
   end
 end
