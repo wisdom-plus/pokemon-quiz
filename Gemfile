@@ -47,6 +47,12 @@ gem "bootsnap", require: false
 
 gem 'dotenv-rails'
 
+gem 'slim'
+
+gem 'html2slim'
+
+gem 'rails-i18n', '~> 7.0.0'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
@@ -56,6 +62,14 @@ gem 'dotenv-rails'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'bullet'
+  gem 'capybara', github: '/teamcapybara/capybara', branch: 'master'
+  gem 'factory_bot_rails'
+  gem 'pry-byebug', '~> 3.9'
+  gem 'rails_best_practices'
+  gem 'rspec-rails'
+  gem 'selenium-webdriver'
+  gem 'webdrivers', '~> 5.0', require: false
 end
 
 group :development do
@@ -67,5 +81,13 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  gem 'annotate'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'letter_opener_web', '~> 2.0'
+  gem 'rubocop', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-rspec', require: false
 end
 
