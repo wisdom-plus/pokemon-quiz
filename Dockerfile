@@ -28,6 +28,9 @@ RUN apk update && \
     apk --no-cache add \
         postgresql-dev \
         tzdata \
+        make \
+        build-base \
+        git \
         bash
 
 WORKDIR ${ROOT}
