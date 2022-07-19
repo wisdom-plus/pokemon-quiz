@@ -47,5 +47,4 @@ module App
                        routing_specs: false
     end
   end
-  end
 end
