@@ -1,5 +1,3 @@
-require 'net/http'
-
 class QuizzesController < ApplicationController
 
   def index
