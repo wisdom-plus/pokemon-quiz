@@ -5,6 +5,7 @@ class QuizzesController < ApplicationController
     poke = Poke.new(poke_id)
     @pokemon = poke.get_pokemon_data
     @pokemon_name = poke.get_pokemon_jp_name
+    @answer = Answer.new
   end
 
   def result
