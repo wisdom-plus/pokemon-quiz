@@ -8,9 +8,11 @@
         svg.text-red-600  fill="none" viewBox="0 0 24 24" stroke="currentColor"
           path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"
       .prod-img.absolute
-        = image_tag @pokemon['sprites']['other']['official-artwork']['front_default'], class: 'p-12 w-full h-full object-cover object-center'
+        = image_tag @pokemon['sprites']['other']['official-artwork']['front_default'], class: 'px-12 w-full h-full object-cover object-center'
       .prod-title.mt-12
         p.text-3xl.uppercase.text-gray-900.font-bold.text-center
           | A. #{@pokemon_name}
+        p.text-3xl.uppercase.text-gray-900.font-bold.text-center.mt-2
+          | あなたの答え: #{@answer.content}
     .pt-6.flex.justify-center.text-center
       = link_to 'Homeに戻る', root_path, class:'w-1/2 my-4 py-3 bg-indigo-500 hover:bg-indigo-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg'
