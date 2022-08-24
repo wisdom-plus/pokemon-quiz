@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'answers/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
@@ -7,4 +6,5 @@ Rails.application.routes.draw do
   root 'home#index'
   get 'quizzes/index'
   get 'quizzes/result'
+  resources :answers,only: [:create]
 end
