@@ -8,7 +8,7 @@ class Poke
     http_client = client
     get_request = Net::HTTP::Get.new("/api/v2/pokemon/#{@poke_id}", 'Content-Type' => 'application/json')
     response = http_client.request(get_request)
-    pokemon = JSON.parse(response.body)
+    pokemon = JSON.parse(response.body).deep_symbolize_keys
   end
 
   def get_pokemon_jp_name
