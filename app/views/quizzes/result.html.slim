@@ -10,7 +10,7 @@
       .prod-img.absolute
         = image_tag @pokemon['sprites']['other']['official-artwork']['front_default'], class: 'px-12 w-full h-full object-cover object-center'
       .prod-title.mt-12
-        p.text-3xl.uppercase.text-gray-900.font-bold.text-center
+        p.text-3xl.uppercase.text-gray-900.font-bold.text-center.mt-2
           | A. #{@pokemon_name}
         p.text-3xl.uppercase.text-gray-900.font-bold.text-center.mt-2
           | あなたの答え: #{@answer.content}
