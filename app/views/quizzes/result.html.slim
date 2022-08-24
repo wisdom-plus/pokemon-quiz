@@ -1,0 +1,14 @@
+.w-1/2.flex.justify-center.items-center.mt-10
+  .w-8/12.p-4
+    .card.flex.flex-col.justify-center.p-10.rounded-lg.shadow-2xl.relative class="#{@answer.correct ? 'bg-green-200' : 'bg-red-200'}"
+      -if @answer.correct
+        svg.text-green-600 viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"
+          circle cx="12" cy="12" r="10"
+      - else
+        svg.text-red-600  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+          path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"
+      .prod-img.absolute
+        = image_tag @pokemon['sprites']['other']['official-artwork']['front_default'], class: 'p-12 w-full h-full object-cover object-center'
+      .prod-title.mt-12
+        p.text-3xl.uppercase.text-gray-900.font-bold.text-center
+          | A. #{@pokemon_name}
