@@ -6,6 +6,8 @@
           | Q.このポケモンの名前はな〜んだ？
       .prod-img
         = image_tag @pokemon['sprites']['other']['official-artwork']['front_default'], class: 'w-full object-cover object-center'
-    = form_with model: @answer ,class: 'relative pt-10' do |f|
-      f.text_field :content, class: 'rounded-lg border-transparent flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-whire text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent', placeholder:'Enter pokemon name'
-      f.submit '解答', class:'text-center py-2 px-4 bg-indigo-600 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white w-1/2 transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg justify-center'
+    = form_with model: @answer ,class: 'pt-10 flex flex-col items-center' do |f|
+      = f.text_field :content,class: 'rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-whire text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent', placeholder:'Enter pokemon name'
+      = f.hidden_field :poke_id, value: @pokemon['id']
+      = f.hidden_field :poke_name, value: @pokemon_name
+      = f.submit '解答', class:'w-1/2 my-4 py-3 bg-indigo-500 hover:bg-indigo-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg'
