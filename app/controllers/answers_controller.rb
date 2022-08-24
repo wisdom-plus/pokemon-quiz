@@ -3,7 +3,7 @@ class AnswersController < ApplicationController
     @answer = Answer.new(answer_params)
     @answer.correct = params[:answer][:poke_name] === @answer.content ? true : false
     if @answer.save
-      redirect_to quizzes_result_path
+      redirect_to result_quizzes_path
     else
       redirect_to root_path
     end
