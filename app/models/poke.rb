@@ -15,7 +15,7 @@ class Poke
     http_client = client
     name_request = Net::HTTP::Get.new("/api/v2/pokemon-species/#{@poke_id}", 'Content-Type' => 'application/json')
     name_response = http_client.request(name_request)
-    pokemon_name = JSON.parse(name_response.body)
+    pokemon_name = JSON.parse(name_response.body)['names'].find { |name| name['language']['name'] == 'ja' }['name']
   end
 
   private
