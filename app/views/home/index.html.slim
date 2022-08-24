@@ -6,6 +6,7 @@
       | pQuiz
     p.leading-normal.mb-4
       | pQuizは、ポケモンの覚えているかをクイズ形式で解くアプリです。
-    = link_to 'Go Quiz',quizzes_path,class: 'bg-transparent hover:bg-gray-900 text-gray-900 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent'
+      | あなたはいくつ正解することができますか？
+    = link_to "Let's Quiz",quizzes_path,class: 'bg-transparent hover:bg-gray-900 text-gray-900 hover:text-white rounded shadow hover:shadow-lg py-2 px-4 border border-gray-900 hover:border-transparent'
   .w-full.lg:w-1/2.lg:py-6.text-center
     = image_tag 'pokemon-ball.png', class: 'fill-current text-gray-900 w-3/5 mx-auto'
