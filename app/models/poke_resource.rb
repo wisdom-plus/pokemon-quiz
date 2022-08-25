@@ -49,4 +49,5 @@ class PokeResource
     @data = JSON.parse(data).deep_symbolize_keys
     true
   end
+
 end
