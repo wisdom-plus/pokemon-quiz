@@ -10,7 +10,7 @@ class PokeResource
   end
 
   def get_pokemon_data
-    get_request = Net::HTTP::Get.new("/api/v2/pokemon/#{@poke_id}", 'Content-Type' => 'application/json')
+    get_request = Net::HTTP::Get.new(pokemon_url, 'Content-Type' => 'application/json')
     response = client.request(get_request)
     begin
       response.value
@@ -25,7 +25,7 @@ class PokeResource
   end
 
   def get_pokemon_jp_name
-    request = Net::HTTP::Get.new("/api/v2/pokemon-species/#{@poke_id}", 'Content-Type' => 'application/json')
+    request = Net::HTTP::Get.new(pokemon_species_url, 'Content-Type' => 'application/json')
     response = client.request(request)
     begin
       response.value
@@ -50,4 +50,11 @@ class PokeResource
     true
   end
 
+  def pokemon_url
+    "/api/v2/pokemon/#{@poke_id}"
+  end
+
+  def pokemon_species_url
+    "/api/v2/pokemon-species/#{@poke_id}"
+  end
 end
