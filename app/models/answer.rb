@@ -13,14 +13,11 @@ class Answer < ApplicationRecord
 
   before_save :prevent_no_answer
 
-
   private
 
   def prevent_no_answer
-    if self.content.nil?
+    if self.content.blank?
       self.content = "解答なし"
-    else
-      self
     end
     self
   end
