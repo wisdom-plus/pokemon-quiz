@@ -1,14 +1,9 @@
 class QuizzesController < ApplicationController
 
   def index
-    @answer = Answer.last
-    poke = Poke.new(randam_poke_id)
-    begin
-      @pokemon = poke.get_pokemon_data
-      @pokemon_name = poke.get_pokemon_jp_name
-    rescue => e
-      redirect_to root_path
-    end
+    @answer = Answer.new
+    @pokemon = Pokemon.new(randam_poke_id)
+    redirect_to root_path unless @pokemon.fetch
   end
 
   def result
