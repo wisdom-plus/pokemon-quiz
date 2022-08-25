@@ -25,9 +25,16 @@ class PokeResource
   end
 
   def get_pokemon_jp_name
-    name_request = Net::HTTP::Get.new("/api/v2/pokemon-species/#{@poke_id}", 'Content-Type' => 'application/json')
-    name_response = client.request(name_request)
-    pokemon_name = JSON.parse(name_response.body)['names'].find { |name| name['language']['name'] == 'ja' }['name']
+    request = Net::HTTP::Get.new("/api/v2/pokemon-species/#{@poke_id}", 'Content-Type' => 'application/json')
+    response = client.request(request)
+    begin
+      response.value
+      JSON.parse(response.body)['names'].find { |name| name['language']['name'] == 'ja' }['name']
+    rescue => e
+      errors.add(:base, '通信に失敗しました')
+      Rails.logger.error e.full_message
+      false
+    end
   end
 
   private
