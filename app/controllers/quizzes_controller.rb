@@ -8,7 +8,7 @@ class QuizzesController < ApplicationController
 
   def result
     @answer = Answer.last
-    @pokemon = Pokemon.new(@answer.pokemon_id)
+    @pokemon = Pokemon.new(@answer.poke_id)
     redirect_to root_path unless @pokemon.fetch
   end
 
