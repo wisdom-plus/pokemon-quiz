@@ -13,7 +13,7 @@ class Pokemon
   end
 
   def fetch
-    poke = Poke.new(@id)
+    poke = PokeResource.new(@id)
     if poke.get_pokemon_data
       @image = poke.data[:sprites][:other][:'official-artwork'][:front_default]
       @name = poke.get_pokemon_jp_name

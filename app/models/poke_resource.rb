@@ -1,4 +1,4 @@
-class Poke
+class PokeResource
   include ActiveModel::Model
 
   attr_reader :data
