@@ -98,9 +98,6 @@ Naming/FileName:
     - "Gemfile"
     - "Guardfile"
 
-Naming/MethodParameterName:
-  AllowedNames: [e]
-
 RSpec/ContextWording:
   Enabled: false
 
