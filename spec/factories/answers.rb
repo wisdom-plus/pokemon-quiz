@@ -11,5 +11,7 @@
 #
 FactoryBot.define do
   factory :answer do
+    correct { false }
+    content { '解答なし' }
   end
 end
