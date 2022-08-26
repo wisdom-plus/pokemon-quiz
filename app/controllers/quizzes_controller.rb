@@ -1,5 +1,4 @@
 class QuizzesController < ApplicationController
-
   def index
     @answer = Answer.new
     @pokemon = Pokemon.new(randam_pokemon_id)
@@ -14,7 +13,7 @@ class QuizzesController < ApplicationController
 
   private
 
-  def randam_pokemon_id
-    rand(1...905)
-  end
+    def randam_pokemon_id
+      rand(1...905)
+    end
 end

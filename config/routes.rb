@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   root 'home#index'
-  resources :answers,only: [:create]
+  resources :answers, only: [:create]
   resources :quizzes, only: [:index] do
     get 'result', on: :collection
   end

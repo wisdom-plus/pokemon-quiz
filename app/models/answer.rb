@@ -10,15 +10,14 @@
 #  poke_id    :bigint
 #
 class Answer < ApplicationRecord
-
   before_save :prevent_blank_answer
 
   private
 
-  def prevent_blank_answer
-    if self.content.blank?
-      self.content = "解答なし"
+    def prevent_blank_answer
+      if content.blank?
+        self.content = '解答なし'
+      end
+      self
     end
-    self
-  end
 end

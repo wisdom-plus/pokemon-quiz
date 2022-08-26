@@ -13,7 +13,7 @@ class PokeResource
     response = Client.new.pokemon_response(@poke_id)
     begin
       response.value
-    rescue => e
+    rescue StandardError => e
       errors.add(:base, '通信に失敗しました')
       Rails.logger.error e.full_message
     end
@@ -28,7 +28,7 @@ class PokeResource
     begin
       response.value
       JSON.parse(response.body)['names'].find { |name| name['language']['name'] == 'ja' }['name']
-    rescue => e
+    rescue StandardError => e
       errors.add(:base, '通信に失敗しました')
       Rails.logger.error e.full_message
       false
@@ -37,8 +37,8 @@ class PokeResource
 
   private
 
-  def data_parse(data)
-    @data = JSON.parse(data).deep_symbolize_keys
-    true
-  end
+    def data_parse(data)
+      @data = JSON.parse(data).deep_symbolize_keys
+      true
+    end
 end

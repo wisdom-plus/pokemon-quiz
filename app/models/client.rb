@@ -1,5 +1,4 @@
 class Client
-
   def initialize
     @uri = URI.parse('https://pokeapi.co')
   end
@@ -16,18 +15,17 @@ class Client
 
   private
 
-  def client
-    http_client = Net::HTTP.new(@uri.host,@uri.port)
-    http_client.use_ssl = true
-    http_client
-  end
+    def client
+      http_client = Net::HTTP.new(@uri.host, @uri.port)
+      http_client.use_ssl = true
+      http_client
+    end
 
-  def pokemon_url(id)
-    "/api/v2/pokemon/#{id}"
-  end
+    def pokemon_url(id)
+      "/api/v2/pokemon/#{id}"
+    end
 
-  def pokemon_species_url(id)
-    "/api/v2/pokemon-species/#{id}"
-  end
-
+    def pokemon_species_url(id)
+      "/api/v2/pokemon-species/#{id}"
+    end
 end

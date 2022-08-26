@@ -4,6 +4,7 @@ class Pokemon
   include ActiveModel::Serializers::JSON
 
   attr_accessor :id, :image, :name
+
   attribute :id, :string
   attribute :image, :string
   attribute :name, :string
@@ -21,5 +22,4 @@ class Pokemon
       false
     end
   end
-
 end
