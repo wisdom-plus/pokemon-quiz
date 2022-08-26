@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   def create
     @answer = Answer.new(answer_params)
-    @answer.correct = params[:answer][:poke_name] === @answer.content
+    @answer.correct = params[:answer][:poke_name] == @answer.content
     if @answer.save
       redirect_to result_quizzes_path
     else

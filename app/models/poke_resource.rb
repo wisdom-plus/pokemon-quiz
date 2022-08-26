@@ -9,7 +9,7 @@ class PokeResource
     @data = nil
   end
 
-  def get_pokemon_data
+  def pokemon_data
     response = Client.new.pokemon_response(@poke_id)
     begin
       response.value
@@ -18,12 +18,12 @@ class PokeResource
       Rails.logger.error e.full_message
     end
 
-    return data_parse(response.body) if response.code === '200'
+    return data_parse(response.body) if response.code == '200'
 
     false
   end
 
-  def get_pokemon_jp_name
+  def pokemon_jp_name
     response = Client.new.name_response(@poke_id)
     begin
       response.value
