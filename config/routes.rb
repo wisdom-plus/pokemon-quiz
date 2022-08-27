@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root 'home#index'
   resources :answers, only: [:create]
+  resources :users, only: [:create, :new]
   resources :quizzes, only: [:index] do
     get 'result', on: :collection
   end
