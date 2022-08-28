@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   def create
     user = User.new(user_params)
     if user.save
-      cookie[:token] = user.token
+      cookies.permanent[:token] = user.token
       redirect_to quizzes_path
     else
       render :new
