@@ -1,6 +1,6 @@
 # == Schema Information
-#
 # Table name: users
+#
 #
 #  id         :bigint           not null, primary key
 #  name       :string
@@ -9,6 +9,7 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
+  has_many :answers
 
   before_save :new_token
 
