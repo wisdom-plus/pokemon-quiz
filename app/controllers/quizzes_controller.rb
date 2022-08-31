@@ -1,4 +1,6 @@
 class QuizzesController < ApplicationController
+  before_action :authenticate_user
+
   def index
     @answer = Answer.new
     @pokemon = Pokemon.new(randam_pokemon_id)

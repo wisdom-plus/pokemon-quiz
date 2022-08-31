@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :authenticate_user
+
   def create
     @answer = current_user.answers.new(answer_params)
     @answer.correct = params[:answer][:poke_name] == @answer.content
