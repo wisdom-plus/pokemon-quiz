@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :user_exist?
+
   def new
     @user = User.new
   end
@@ -16,5 +18,9 @@ class UsersController < ApplicationController
   private
     def user_params
       params.require(:user).permit(:name)
+    end
+
+    def user_exist?
+      return redirect_to root_path, alret: '表示することができません。' if current_user
     end
 end
