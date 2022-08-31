@@ -21,6 +21,6 @@ class UsersController < ApplicationController
     end
 
     def user_exist?
-      return redirect_to root_path, alret: '表示することができません。' if current_user
+      return redirect_to root_path, alert: 'ページを表示することができません。' if current_user
     end
 end
