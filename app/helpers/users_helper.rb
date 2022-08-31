@@ -1,7 +1,7 @@
 module UsersHelper
 
   def signed_in?
-    return cookies[:token].nil?
+    return cookies[:pquiz_token].nil?
     false
   end
 end
