@@ -28,5 +28,12 @@ html
         /     li.mr-3
         /       a.inline-block.text-gray-600.no-underline.hover:text-gray-200.hover:text-underline.py-2.px-4 href='#'
         /         | Link
+    - if alert
+      .px-8.py-2
+        .flex.items-center.mx-auto.container.justify-center.md:justify-between.py-2.bg-red-400.rounded
+          .mx-auto.my-2.text-center.text-xl.font-semibold.text-gray-900
+            = alert
+          svg.h-8.w-8.text-gray-900.mr-6  fill="none" viewBox="0 0 24 24" stroke="currentColor"
+            path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"
     main.flex.justify-center
       = yield
