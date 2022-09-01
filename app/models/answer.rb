@@ -23,6 +23,8 @@ class Answer < ApplicationRecord
 
   before_save :prevent_blank_answer
 
+  validates :content, presence: true, length: { maximum: 30 }, format: {with: /\p{katakana}/}
+
   private
 
     def prevent_blank_answer
