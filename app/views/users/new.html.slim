@@ -1,9 +1,18 @@
 .w-1/2.flex.justify-center.items-center.mt-8
-  .w-8/12.p-4
-    .card.flex.flex-col.justify-center.p-10.bg-white.rounded-lg.shadow-2xl
-      .prod-title
-        p.text-2xl.uppercase.text-gray-900.font-bold
-          | Q.このポケモンの名前はな〜んだ？
-    = form_with model: @user ,class: 'pt-10 flex flex-col items-center' do |f|
-      = f.text_field :name,class: 'rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-whire text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent', placeholder:'user name'
-      = f.submit '送信', class:'w-1/2 my-4 py-3 bg-indigo-500 hover:bg-indigo-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg'
+  .flex.flex-col.w-full.max-w-md.px-4.py-8.bg-gray-800.rounded-lg.shadow.sm:px-6.md:px-8.lg:px-10
+    .self-center.mb-6.text-xl.font-light.text-gray-600.sm:text-2xl.dark:text-white
+      | ユーザー名を入力してください
+    .mt-8
+      = form_with model: @user do |f|
+        .flex.flex-col.mb-2
+          .flex.flex-col.mb-6
+              .flex.relative
+                  .rounded-l-md.inline-flex.items-center.px-3.border-t.bg-white.border-l.border-b.border-gray-300.text-gray-500.shadow-sm.text-sm
+                    svg.h-6.w-6 viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"
+                      path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"
+                      circle cx="12" cy="7" r="4"
+                  = f.text_field :name, class: ' rounded-r-lg flex-1 appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent' ,placeholder: 'user name'
+              .flex.w-full.mt-8
+                = f.submit '送信', class: 'py-2 px-4  bg-purple-600 hover:bg-purple-700 focus:ring-purple-500 focus:ring-offset-purple-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg '
+                  | Login
+
