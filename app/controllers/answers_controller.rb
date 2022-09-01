@@ -3,7 +3,6 @@ class AnswersController < ApplicationController
 
   def create
     @answer = current_user.answers.new(answer_params)
-    @answer.correct = params[:answer][:poke_name] == @answer.content
     if @answer.save
       redirect_to result_quizzes_path
     else
@@ -14,6 +13,6 @@ class AnswersController < ApplicationController
   private
 
     def answer_params
-      params.require(:answer).permit(:content, :poke_id)
+      params.require(:answer).permit(:content, :poke_id, :poke_name)
     end
 end
