@@ -20,17 +20,28 @@
 #
 class Answer < ApplicationRecord
   belongs_to :user
+  attr_writer :poke_name
 
-  before_save :prevent_blank_answer
+  before_validation :prevent_blank_answer
+  before_save :rigth_or_wrong
 
-  validates :content, presence: true, length: { maximum: 30 }, format: {with: /\p{katakana}/}
+
+  validates :content, length: { maximum: 30 }, format: {with: /[\p{katakana}]*(解答なし)*/,message: 'カタカナで入力してください'}
+
+  def poke_name
+    @poke_name
+  end
 
   private
 
     def prevent_blank_answer
-      if content.blank?
-        self.content = '解答なし'
-      end
+      self.content = '解答なし' if content.blank?
+
       self
     end
+
+    def rigth_or_wrong
+      self.correct = content == @poke_name
+    end
+
 end
