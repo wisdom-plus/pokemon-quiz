@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :answers
 
   before_save :new_token
-
+  validates :name, presence: true, length: { maximum: 30 }
 
   private
     def new_token
