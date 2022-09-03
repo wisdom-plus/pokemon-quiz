@@ -8,7 +8,8 @@ class AnswersController < ApplicationController
     else
       @pokemon = Pokemon.new(@answer.poke_id)
       return redirect_to root_path unless @pokemon.fetch
-      render 'quizzes/index', status: :unprocessable_entity, alert: '入力に誤りがあります'
+      flash.now[:alert] = '入力に誤りがあります'
+      render 'quizzes/index', status: :unprocessable_entity
     end
   end
 
