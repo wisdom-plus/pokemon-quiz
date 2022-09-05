@@ -6,6 +6,13 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      user: ユーザー
+      answer: 回答
+    attributes:
+      answer:
+        content: 回答
+        correct: 正誤
   date:
     abbr_day_names:
     - 日
@@ -132,6 +139,7 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      katakana: はカタカナで入力してください
     template:
       body: 次の項目を確認してください
       header:
