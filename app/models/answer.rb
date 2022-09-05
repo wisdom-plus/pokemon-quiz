@@ -26,7 +26,7 @@ class Answer < ApplicationRecord
   before_save :rigth_or_wrong
 
 
-  validates :content, length: { maximum: 30 }, format: {with: /\A[\p{katakana}]+\z|(解答なし)/,message: 'カタカナで入力してください'}
+  validates :content, length: { maximum: 30 }, format: {with: /\A[\p{katakana}]+\z|(解答なし)/,message: :katakana}
 
   def poke_name
     @poke_name
