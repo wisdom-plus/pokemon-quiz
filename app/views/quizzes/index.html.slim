@@ -7,7 +7,7 @@
         p.text-2xl.uppercase.text-gray-900.font-bold
           | Q.このポケモンの名前はな〜んだ？
       .prod-img
-        = image_tag @pokemon.image, class: 'w-full object-cover object-center'
+        = image_tag @pokemon.image, loading:'lazy',class: 'w-full object-cover object-center'
     = form_with model: @answer ,class: 'pt-10 flex flex-col items-center relative',data:{ controller: 'translation'} do |f|
       - if @answer.errors.any?
         - @answer.errors.full_messages.each do |message|
