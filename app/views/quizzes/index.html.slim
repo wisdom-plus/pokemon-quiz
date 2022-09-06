@@ -1,13 +1,13 @@
 = turbo_frame_tag 'main',class: 'w-1/2 flex justify-center items-center mt-8' do
-  .flex.justify-center.loading-spinner
-    .animate-spin.h-24.w-24.border-8.border-blue-500.rounded-full.border-t-transparent
   .w-8/12.p-4
     .card.flex.flex-col.justify-center.p-10.bg-white.rounded-lg.shadow-2xl
       .prod-title
         p.text-2xl.uppercase.text-gray-900.font-bold
           | Q.このポケモンの名前はな〜んだ？
-      .prod-img
-        = image_tag @pokemon.image, loading:'lazy',class: 'w-full object-cover object-center'
+      .prod-img data-controller="lozad"
+        .flex.justify-center.loading-spinner data-lozad-target = 'spinner'
+          .animate-spin.h-24.w-24.border-8.border-blue-500.rounded-full.border-t-transparent
+        img.w-full.object-cover.object-center.lozad data-src = @pokemon.image
     = form_with model: @answer ,class: 'pt-10 flex flex-col items-center relative',data:{ controller: 'translation'} do |f|
       - if @answer.errors.any?
         - @answer.errors.full_messages.each do |message|
