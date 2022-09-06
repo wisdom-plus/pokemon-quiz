@@ -1,13 +1,20 @@
-.w-1/2.flex.justify-center.items-center.mt-8
+= turbo_frame_tag 'main',class: 'w-1/2 flex justify-center items-center mt-8' do
   .w-8/12.p-4
     .card.flex.flex-col.justify-center.p-10.bg-white.rounded-lg.shadow-2xl
       .prod-title
         p.text-2xl.uppercase.text-gray-900.font-bold
           | Q.このポケモンの名前はな〜んだ？
-      .prod-img
-        = image_tag @pokemon.image, class: 'w-full object-cover object-center'
-    = form_with model: @answer ,class: 'pt-10 flex flex-col items-center' do |f|
-      = f.text_field :content,class: 'rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-whire text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent', placeholder:'Enter pokemon name'
+      .prod-img data-controller="lozad"
+        .flex.justify-center.loading-spinner data-lozad-target = 'spinner'
+          .animate-spin.h-24.w-24.border-8.border-blue-500.rounded-full.border-t-transparent
+        img.w-full.object-cover.object-center.lozad data-src = @pokemon.image
+    = form_with model: @answer ,class: 'pt-10 flex flex-col items-center relative',data:{ controller: 'translation'} do |f|
+      - if @answer.errors.any?
+        - @answer.errors.full_messages.each do |message|
+          span class ="absolute top-4 mx-2 px-6 py-1 border-2 border-red-500 bg-transparent rounded-lg text-red-500 whitespace-nowrap after:content-[''] after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-red-500"
+            = message
+      = f.label :content, '回答：' ,class: 'text-gray-700 self-start'
+      = f.text_field :content,class: 'rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-whire text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent', placeholder:'Enter pokemon name', data: {translation_target: 'text'}
       = f.hidden_field :poke_id, value: @pokemon.id
       = f.hidden_field :poke_name, value: @pokemon.name
-      = f.submit '解答', class:'w-1/2 my-4 py-3 bg-indigo-500 hover:bg-indigo-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg'
+      = f.submit '解答', class:'w-1/2 my-4 py-3 bg-indigo-500 hover:bg-indigo-800 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-white transition ease-in duration-200 text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg', data: {action: 'click->translation#translate'}

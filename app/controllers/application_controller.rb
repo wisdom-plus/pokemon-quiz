@@ -8,8 +8,6 @@ class ApplicationController < ActionController::Base
     end
 
     def authenticate_user
-      unless current_user
-        redirect_to root_path, alert: 'ユーザーを作成してください'
-      end
+      return redirect_to root_path, alert: 'ユーザーを作成してください' unless current_user
     end
 end

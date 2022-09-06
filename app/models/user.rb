@@ -9,12 +9,13 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
-  has_many :answers
+  has_many :answers, dependent: :destroy
 
   before_save :new_token
   validates :name, presence: true, length: { maximum: 30 }
 
   private
+
     def new_token
       self.token = SecureRandom.urlsafe_base64
     end
