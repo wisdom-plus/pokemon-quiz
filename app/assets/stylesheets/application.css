@@ -17,11 +17,3 @@
 .field_with_errors {
   width: 100%
 }
-
-.loading-spinner {
-  display: none
-}
-
-[aria-budy="true"] .loading-spinner {
-  display: flex;
-}
