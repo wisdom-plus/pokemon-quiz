@@ -2,4 +2,5 @@
 import "@hotwired/turbo-rails";
 import "controllers";
 import jquery from "jquery";
+import lozad from "lozad";
 window.$ = window.jquery = jquery;
